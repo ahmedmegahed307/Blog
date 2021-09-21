@@ -1,0 +1,60 @@
+﻿@model List<TbBlog>
+<body>
+
+   
+   
+    <!-- breadcrumb start -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-title">
+                        <h2>blog</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb End -->
+    <!-- section start -->
+    <section class="section-b-space blog-page ratio2_3">
+        <div class="container">
+            @foreach (var item in Model)
+            {
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="row blog-media">
+                        <div class="col-xl-6">
+                            <div class="blog-left">
+                                <a href="#">
+                                    <img src="@string.Format("/BlogsPhoto/{0}",item.BlogImage)"
+                                         class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="blog-right">
+                                <div>
+                                    <h2>@item.BlogTitle</h2>
+                                    
+                                    <p>
+                                       @item.BlogContent
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr />
+            }
+        </div>
+    </section>
+    <!-- Section ends -->
+    </body>
+  

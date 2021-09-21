@@ -1,0 +1,41 @@
+﻿@model List<TbBlogCategories>
+<div class="page-body">
+
+
+
+  
+    @*<button type="button" class="btn btn-primary">Add Category</button>*@
+    <a asp-controller="Category" asp-action="CategoryEdit" class="btn btn-primary">Add Category</a>
+    <br />
+    <table class="table table-hover text-nowrap">
+
+        <thead>
+            <tr>
+                <th>Category Name</th>
+
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.CategoryName</td>
+                    <td>
+                        <a asp-controller="Category" asp-action="CategoryEdit" asp-route-id="@item.TbBlogCategoriesId" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-name="@item.CategoryName" class="btn btn-primary">Delete</a>
+                    </td>
+
+
+                </tr>
+
+            }
+
+
+
+        </tbody>
+    </table>
+
+</div>

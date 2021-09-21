@@ -1,0 +1,70 @@
+﻿
+@model List<TbBlog>
+<div class="page-body">
+
+
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Blogs List</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <a asp-controller="Blog" asp-action="Edit" class="btn btn-info">New Blog</a>
+
+                        <table class="table table-hover text-nowrap">
+
+                            <thead>
+                                <tr>
+                                    <th>Blog Id</th>
+                                    <th>Blog Title</th>
+                                    <th> Blog Content</th>
+                                    <th>Image</th>
+                                    <th>Actions</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.TbBlogId</td>
+                                        <td>@item.BlogTitle</td>
+
+                                        <td>@item.BlogContent</td>
+                                        <td>
+                                            <img src="@string.Format("/BlogsPhoto/{0}",item.BlogImage)" width="150" height="100" />
+                                        </td>
+                                        <td>
+                                            <a asp-controller="Blog" asp-action="Edit" asp-route-id="@item.TbBlogId" class="btn btn-warning">Edit</a>
+                                            <a asp-controller="Blog" asp-action="Delete" asp-route-id="@item.TbBlogId" class="btn btn-danger">Delete</a>
+                                        </td>
+
+
+                                    </tr>
+
+                                }
+
+
+
+                            </tbody>
+                        </table>
+
+
+
+                       
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+</div>
+

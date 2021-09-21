@@ -1,0 +1,77 @@
+﻿@model TbBlog
+
+<div class="page-body">
+
+
+
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card card-info">
+                    <div class="card-header">
+                        <div class="btn btn-primary">Add/Edit Blog</div>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-controller="Blog" asp-action="Save" method="post"
+                          role="form" class="form-horizontal" enctype="multipart/form-data">
+                        <div class="card-body">
+
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Category</label>
+                                <div class="col-sm-4">
+                                    @*not to view blogid everytime =1 so we can differentiate between edit method and add method*@
+                                    <input type="hidden" asp-for="TbBlogId" />
+
+                                    <select class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.cat,"TbBlogCategoriesId","CategoryName"))"></select>
+                                    <span asp-validation-for="CategoryId"></span>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Blog Title</label>
+                                <div class="col-sm-4">
+                                    <input type="text" asp-for="BlogTitle" class="form-control" placeholder="Blog Title">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="blogcontent">Write Blog Content</label>
+                                <textarea class="form-control" placeholder="Write Blog Content"
+                                          asp-for="BlogContent" rows="6"></textarea>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Blog Image</label>
+                                <div class="col-sm-4">
+                                    <input type="file" name="Files" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success">Submit</button>
+
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+

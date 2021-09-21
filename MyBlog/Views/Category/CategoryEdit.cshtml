@@ -1,0 +1,51 @@
+﻿@model TbBlogCategories
+<div class="page-body">
+
+
+
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+               
+                <div class="card card-info">
+                    <div class="card-header">
+                        <div class="btn btn-primary">Add/Edit Category</div>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-controller="Category" asp-action="Save" method="post"
+                          role="form" class="form-horizontal" >
+                        <div class="card-body">
+
+                           
+
+                            <div class="form-group row">
+                                <input type="hidden" asp-for="TbBlogCategoriesId" />
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Category Name</label>
+                                <div class="col-sm-4">
+                                    <input type="text" asp-for="CategoryName" class="form-control" placeholder="Category Name">
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success">Submit</button>
+
+                        </div>
+                        
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+    
+    
+
+</div>
